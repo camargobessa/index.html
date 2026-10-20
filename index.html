@@ -61,9 +61,9 @@
 
     .summary-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 8px;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     .summary-box {
@@ -80,8 +80,18 @@
     }
 
     .summary-value {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: bold;
+    }
+
+    .lucro-box {
+      grid-column: span 2;
+      background: #111827;
+      border: 1px solid #3b82f6;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 4px;
     }
 
     /* Divisão dos Sócios */
@@ -90,7 +100,7 @@
       border: 1px solid #334155;
       border-radius: 8px;
       padding: 12px;
-      margin-top: 8px;
+      margin-top: 10px;
     }
 
     .socios-title {
@@ -312,6 +322,7 @@
     .val-green { color: #10b981; }
     .val-red { color: #ef4444; }
     .val-yellow { color: #f59e0b; }
+    .val-blue { color: #3b82f6; }
   </style>
 </head>
 <body>
@@ -327,20 +338,29 @@
     
     <div class="summary-grid">
       <div class="summary-box">
-        <div class="summary-label">Entradas</div>
+        <div class="summary-label">Entradas Estética</div>
+        <div class="summary-value val-green" id="entradas-estetica">R$ 0,00</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-label">Entradas Funilaria</div>
+        <div class="summary-value val-blue" id="entradas-funilaria">R$ 0,00</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-label">Total Entradas</div>
         <div class="summary-value val-green" id="total-entradas">R$ 0,00</div>
       </div>
       <div class="summary-box">
-        <div class="summary-label">Saídas</div>
+        <div class="summary-label">Total Saídas</div>
         <div class="summary-value val-red" id="total-saidas">R$ 0,00</div>
       </div>
-      <div class="summary-box">
-        <div class="summary-label">Lucro Total</div>
-        <div class="summary-value val-yellow" id="lucro-total">R$ 0,00</div>
+
+      <div class="lucro-box">
+        <div class="summary-label" style="font-size: 0.75rem;">LUCRO TOTAL LÍQUIDO</div>
+        <div class="summary-value val-yellow" style="font-size: 1.2rem;" id="lucro-total">R$ 0,00</div>
       </div>
     </div>
 
-    <!-- DIVISÃO POR SÓCIO (ABAIXO DO LUCRO TOTAL) -->
+    <!-- DIVISÃO POR SÓCIO -->
     <div class="socios-card">
       <div class="socios-title">🤝 Divisão do Lucro Atual (Por Sócio)</div>
       <div class="socios-grid">
@@ -364,11 +384,10 @@
     </div>
   </div>
 
-  <!-- Menu de Navegação por Abas -->
+  <!-- Menu de Navegação por Abas (Sem Carros Pessoais) -->
   <div class="tabs">
     <button class="tab-btn active" onclick="switchTab('caixa')">💵 Caixa & O.S.</button>
     <button class="tab-btn" onclick="switchTab('estoque')">📦 Estoque</button>
-    <button class="tab-btn" onclick="switchTab('pessoais')">🚗 Carros Pessoais</button>
     <button class="tab-btn" onclick="switchTab('fds')">🏎️ Carros FDS / Revenda</button>
     <button class="tab-btn" onclick="switchTab('ferramentas')">🛠️ Ferramentas</button>
   </div>
@@ -398,7 +417,7 @@
         <select id="os-tipo">
           <option value="Estética">Estética Automotiva</option>
           <option value="Funilaria">Funilaria / Pintura</option>
-          <option value="Mecânica">Mecânica / Manutenção</option>
+          <option value="Mecânica">Mecânica / Outros</option>
         </select>
       </div>
       <div class="form-group">
@@ -457,35 +476,7 @@
     </div>
   </div>
 
-  <!-- ABA 3: CARROS PESSOAIS -->
-  <div id="tab-pessoais" class="tab-content">
-    <div class="card">
-      <div class="card-title">
-        <span>Nossa Frota / Uso Pessoal</span>
-        <button class="btn btn-primary" style="width: auto; padding: 6px 12px;" onclick="toggleForm('form-pessoais')">+ Adicionar</button>
-      </div>
-
-      <div id="form-pessoais" style="display: none; margin-bottom: 12px;">
-        <div class="form-group">
-          <label>Veículo / Moto</label>
-          <input type="text" id="pess-nome" placeholder="Ex: Honda CG 150 FlexOne / Sandero 2016">
-        </div>
-        <div class="form-group">
-          <label>Dono / Responsável</label>
-          <input type="text" id="pess-dono" placeholder="Nome do Sócio">
-        </div>
-        <div class="form-group">
-          <label>Próxima Manutenção / Notas</label>
-          <input type="text" id="pess-obs" placeholder="Ex: Troca de óleo pendente">
-        </div>
-        <button class="btn btn-success" onclick="addPessoal()">Cadastrar Veículo</button>
-      </div>
-
-      <div id="lista-pessoais" class="item-list"></div>
-    </div>
-  </div>
-
-  <!-- ABA 4: CARROS FDS / REVENDA -->
+  <!-- ABA 3: CARROS FDS / REVENDA -->
   <div id="tab-fds" class="tab-content">
     <div class="card">
       <div class="card-title">
@@ -509,7 +500,7 @@
         <div class="form-group">
           <label>Status do Projeto</label>
           <select id="fds-status">
-            <option value="Em Preparação/Funilaria">Em Funilaria / Lixamento</option>
+            <option value="Em Funilaria/Lixamento">Em Funilaria / Lixamento</option>
             <option value="Pronto para Venda">Pronto para Venda</option>
             <option value="Vendido">Vendido</option>
           </select>
@@ -521,7 +512,7 @@
     </div>
   </div>
 
-  <!-- ABA 5: FERRAMENTAS -->
+  <!-- ABA 4: FERRAMENTAS -->
   <div id="tab-ferramentas" class="tab-content">
     <div class="card">
       <div class="card-title">
@@ -554,7 +545,6 @@
         { id: 1, nome: "Vonixx Sintra", qtd: 2 },
         { id: 2, nome: "Vonixx V-Floc", qtd: 3 }
       ],
-      pessoais: [],
       fds: [],
       ferramentas: []
     };
@@ -605,7 +595,8 @@
         item.pago = true;
         db.caixa.push({
           id: Date.now(),
-          desc: `O.S. Pago: ${item.cliente} (${item.tipo})`,
+          desc: `O.S. Pago: ${item.cliente}`,
+          categoria: item.tipo, // Estética, Funilaria, etc.
           valor: item.valor,
           tipo: 'entrada'
         });
@@ -622,6 +613,7 @@
       db.caixa.push({
         id: Date.now(),
         desc: `Saída: ${desc}`,
+        categoria: 'Saída',
         valor: -valor,
         tipo: 'saida'
       });
@@ -652,20 +644,6 @@
         if (item.qtd < 0) item.qtd = 0;
         saveDB();
       }
-    }
-
-    // Ações Carros Pessoais
-    function addPessoal() {
-      const nome = document.getElementById('pess-nome').value;
-      const dono = document.getElementById('pess-dono').value;
-      const obs = document.getElementById('pess-obs').value;
-
-      if (!nome) return alert('Digite o modelo do veículo!');
-
-      db.pessoais.push({ id: Date.now(), nome, dono, obs });
-      document.getElementById('pess-nome').value = '';
-      toggleForm('form-pessoais');
-      saveDB();
     }
 
     // Ações Carros FDS
@@ -703,12 +681,28 @@
 
     // Renderização Geral
     function renderAll() {
-      // Calcular Entradas, Saídas e Lucro Total
-      const entradas = db.caixa.filter(c => c.valor > 0).reduce((acc, curr) => acc + curr.valor, 0);
-      const saidas = db.caixa.filter(c => c.valor < 0).reduce((acc, curr) => acc + Math.abs(curr.valor), 0);
-      const lucroTotal = entradas - saidas;
+      // Calcular Entradas por Categoria (Estética vs Funilaria)
+      let entEstetica = 0;
+      let entFunilaria = 0;
+      let entOutros = 0;
+      let saidas = 0;
 
-      document.getElementById('total-entradas').innerText = `R$ ${entradas.toFixed(2)}`;
+      db.caixa.forEach(c => {
+        if (c.valor > 0) {
+          if (c.categoria === 'Estética') entEstetica += c.valor;
+          else if (c.categoria === 'Funilaria') entFunilaria += c.valor;
+          else entOutros += c.valor;
+        } else {
+          saidas += Math.abs(c.valor);
+        }
+      });
+
+      const totalEntradas = entEstetica + entFunilaria + entOutros;
+      const lucroTotal = totalEntradas - saidas;
+
+      document.getElementById('entradas-estetica').innerText = `R$ ${entEstetica.toFixed(2)}`;
+      document.getElementById('entradas-funilaria').innerText = `R$ ${(entFunilaria + entOutros).toFixed(2)}`;
+      document.getElementById('total-entradas').innerText = `R$ ${totalEntradas.toFixed(2)}`;
       document.getElementById('total-saidas').innerText = `R$ ${saidas.toFixed(2)}`;
       document.getElementById('lucro-total').innerText = `R$ ${lucroTotal.toFixed(2)}`;
       
@@ -747,6 +741,7 @@
               <span class="item-title">${item.desc}</span>
               <span class="${item.valor >= 0 ? 'val-green' : 'val-red'}">R$ ${item.valor.toFixed(2)}</span>
             </div>
+            <div class="item-sub">${item.categoria || 'Geral'}</div>
           </div>
         `;
       });
@@ -765,24 +760,6 @@
               <button class="btn-action-done" onclick="alterQtd(${item.id}, 1)">+1 Qtd</button>
               <button class="btn-action-done" style="background:#d97706;" onclick="alterQtd(${item.id}, -1)">-1 Qtd</button>
               <button class="btn-action-del" onclick="deleteItem('estoque', ${item.id})">Excluir</button>
-            </div>
-          </div>
-        `;
-      });
-
-      // Render Pessoais
-      const listaPess = document.getElementById('lista-pessoais');
-      listaPess.innerHTML = db.pessoais.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Nenhum veículo cadastrado.</div>' : '';
-      db.pessoais.forEach(item => {
-        listaPess.innerHTML += `
-          <div class="list-item">
-            <div class="item-header">
-              <span class="item-title">${item.nome}</span>
-              <span class="item-badge">${item.dono || 'Sócio'}</span>
-            </div>
-            <div class="item-sub">${item.obs || 'Sem observações'}</div>
-            <div class="item-actions">
-              <button class="btn-action-del" onclick="deleteItem('pessoais', ${item.id})">Excluir</button>
             </div>
           </div>
         `;
