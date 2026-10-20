@@ -349,14 +349,14 @@
 <body>
 
   <!-- TELA DE SENHA -->
-  <div id="lock-screen">
+  <div id="lock-screen" style="display: flex;">
     <div class="lock-card">
-      <div class="lock-title">🔒 AUTO CENTER</div>
+      <div class="lock-title">🔒 BROTHERS AUTO CENTER</div>
       <div class="lock-sub">Digite a senha de acesso da oficina</div>
       <div class="form-group">
-        <input type="password" id="access-password" placeholder="Senha (ex: 1994)" style="text-align: center; letter-spacing: 2px;">
+        <input type="password" id="access-password" placeholder="" style="text-align: center; letter-spacing: 4px;" onkeypress="if(event.key === 'Enter') checkPassword()">
       </div>
-      <button class="btn btn-primary" onclick="checkPassword()">Entrar no Sistema</button>
+      <button class="btn btn-primary" type="button" onclick="checkPassword()">Entrar no Sistema</button>
       <div id="error-msg" style="color: #ef4444; font-size: 0.75rem; margin-top: 8px; display: none;">Senha incorreta!</div>
     </div>
   </div>
@@ -386,7 +386,7 @@
       <span class="menu-icon">📦</span> Estoque de Insumos
     </button>
     <button class="menu-btn" onclick="switchTab('revenda')">
-      <span class="menu-icon">🏎‍🟀</span> Carros FDS / Revenda
+      <span class="menu-icon">🏎️</span> Carros FDS / Revenda
     </button>
     <button class="menu-btn" onclick="switchTab('ferramentas')">
       <span class="menu-icon">🛠️</span> Ferramentas
@@ -418,7 +418,7 @@
     </div>
 
     <div class="card">
-      <div class="card-title">Divisão dos 4 Sócios (Lucro Líquido Atual)</div>
+      <div class="card-title">Divisão dos Sócios (Lucro Líquido Atual)</div>
       <div class="socios-grid">
         <div class="socio-card">
           <div class="socio-name">Jefferson</div>
@@ -451,7 +451,7 @@
       <div class="card-title">Nova Ordem de Serviço</div>
       <div class="form-group">
         <label>Cliente e Veículo</label>
-        <input type="text" id="os-cliente" placeholder="Ex: Carlos - Civic 94">
+        <input type="text" id="os-cliente">
       </div>
       <div class="form-group">
         <label>Categoria Principal</label>
@@ -462,11 +462,11 @@
       </div>
       <div class="form-group">
         <label>Descrição dos Serviços</label>
-        <input type="text" id="os-desc" placeholder="Ex: Polimento Técnico + Pintura Parachoque">
+        <input type="text" id="os-desc">
       </div>
       <div class="form-group">
         <label>Valor (R$)</label>
-        <input type="number" id="os-valor" placeholder="0.00">
+        <input type="number" id="os-valor">
       </div>
       <button class="btn btn-success" onclick="addOS()">Salvar O.S.</button>
     </div>
@@ -516,11 +516,11 @@
       <div class="card-title">Lançar Despesa / Saída</div>
       <div class="form-group">
         <label>Descrição</label>
-        <input type="text" id="desp-desc" placeholder="Ex: Vonixx V-Floc / Lixas / Marmita">
+        <input type="text" id="desp-desc">
       </div>
       <div class="form-group">
         <label>Valor (R$)</label>
-        <input type="number" id="desp-valor" placeholder="0.00">
+        <input type="number" id="desp-valor">
       </div>
       <button class="btn btn-primary" style="background:#ef4444; color:#fff;" onclick="addDespesa()">Salvar Despesa</button>
     </div>
@@ -541,11 +541,11 @@
     <div id="form-estoque" class="card" style="display: none;">
       <div class="form-group">
         <label>Nome do Insumo</label>
-        <input type="text" id="est-nome" placeholder="Ex: Vonixx Sintra / Lixas">
+        <input type="text" id="est-nome">
       </div>
       <div class="form-group">
         <label>Quantidade</label>
-        <input type="number" id="est-qtd" placeholder="1">
+        <input type="number" id="est-qtd">
       </div>
       <button class="btn btn-success" onclick="addEstoque()">Salvar no Estoque</button>
     </div>
@@ -566,15 +566,15 @@
     <div id="form-revenda" class="card" style="display: none;">
       <div class="form-group">
         <label>Modelo do Veículo</label>
-        <input type="text" id="rev-nome" placeholder="Ex: Fiat Palio 1999">
+        <input type="text" id="rev-nome">
       </div>
       <div class="form-group">
         <label>Valor de Compra (R$)</label>
-        <input type="number" id="rev-compra" placeholder="0.00">
+        <input type="number" id="rev-compra">
       </div>
       <div class="form-group">
         <label>Gasto com Peças/Funilaria (R$)</label>
-        <input type="number" id="rev-gasto" placeholder="0.00">
+        <input type="number" id="rev-gasto">
       </div>
       <button class="btn btn-success" onclick="addRevenda()">Salvar Projeto</button>
     </div>
@@ -595,11 +595,11 @@
     <div id="form-ferramentas" class="card" style="display: none;">
       <div class="form-group">
         <label>Nome da Ferramenta</label>
-        <input type="text" id="ferr-nome" placeholder="Ex: Politriz / Lixadeira">
+        <input type="text" id="ferr-nome">
       </div>
       <div class="form-group">
         <label>Local / Com Quem</label>
-        <input type="text" id="ferr-local" placeholder="Ex: Bancada 1">
+        <input type="text" id="ferr-local">
       </div>
       <button class="btn btn-success" onclick="addFerramenta()">Salvar</button>
     </div>
@@ -611,12 +611,11 @@
   </div>
 
   <script>
-    // Sistema de Senha
-    const SENHA_OFICINA = "1994"; // Podes alterar a senha aqui se quiseres
+    const SENHA_OFICINA = "1994";
 
     function checkPassword() {
-      const digitada = document.getElementById('access-password').value;
-      if (digitada === SENHA_OFICINA) {
+      const inputVal = document.getElementById('access-password').value;
+      if (inputVal === SENHA_OFICINA) {
         document.getElementById('lock-screen').style.display = 'none';
         localStorage.setItem('autocenter_auth', 'true');
       } else {
@@ -625,7 +624,6 @@
       }
     }
 
-    // Verificar se já entrou antes neste navegador
     window.onload = function() {
       if (localStorage.getItem('autocenter_auth') === 'true') {
         document.getElementById('lock-screen').style.display = 'none';
@@ -635,7 +633,7 @@
     let db = JSON.parse(localStorage.getItem('autocenter_db')) || {
       os: [],
       caixa: [],
-      estoque: [{ id: 1, nome: "Vonixx V-Floc", qtd: 3 }],
+      estoque: [],
       revenda: [],
       ferramentas: []
     };
@@ -680,7 +678,7 @@
         item.pago = true;
         db.caixa.push({
           id: Date.now(),
-          desc: O.S. Recebida: ${item.cliente} (${item.desc}),
+          desc: `O.S. Recebida: ${item.cliente} (${item.desc})`,
           categoria: item.tipo,
           valor: item.valor
         });
@@ -696,7 +694,7 @@
 
       db.caixa.push({
         id: Date.now(),
-        desc: Saída: ${desc},
+        desc: `Saída: ${desc}`,
         categoria: 'Saída',
         valor: -valor
       });
@@ -713,6 +711,7 @@
       if (!nome) return alert('Digite o nome!');
       db.estoque.push({ id: Date.now(), nome, qtd });
       document.getElementById('est-nome').value = '';
+      document.getElementById('est-qtd').value = '';
       toggleForm('form-estoque');
       saveDB();
     }
@@ -771,18 +770,18 @@
       const porSocio = lucroTotal / 4;
 
       document.getElementById('count-os').innerText = db.os.length;
-      document.getElementById('dash-faturado').innerText = R$ ${totalEntradas.toFixed(2)};
+      document.getElementById('dash-faturado').innerText = `R$ ${totalEntradas.toFixed(2)}`;
       document.getElementById('dash-qtd-os').innerText = db.os.length;
 
       for (let i = 1; i <= 4; i++) {
-        document.getElementById(dash-socio-${i}).innerText = R$ ${porSocio.toFixed(2)};
+        document.getElementById(`dash-socio-${i}`).innerText = `R$ ${porSocio.toFixed(2)}`;
       }
 
-      document.getElementById('fin-estetica').innerText = R$ ${entEstetica.toFixed(2)};
-      document.getElementById('fin-funilaria').innerText = R$ ${entFunilaria.toFixed(2)};
-      document.getElementById('fin-total-entradas').innerText = R$ ${totalEntradas.toFixed(2)};
-      document.getElementById('fin-saidas').innerText = R$ ${saidas.toFixed(2)};
-      document.getElementById('fin-lucro').innerText = R$ ${lucroTotal.toFixed(2)};
+      document.getElementById('fin-estetica').innerText = `R$ ${entEstetica.toFixed(2)}`;
+      document.getElementById('fin-funilaria').innerText = `R$ ${entFunilaria.toFixed(2)}`;
+      document.getElementById('fin-total-entradas').innerText = `R$ ${totalEntradas.toFixed(2)}`;
+      document.getElementById('fin-saidas').innerText = `R$ ${saidas.toFixed(2)}`;
+      document.getElementById('fin-lucro').innerText = `R$ ${lucroTotal.toFixed(2)}`;
 
       const listaOS = document.getElementById('lista-os');
       listaOS.innerHTML = db.os.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Nenhuma O.S. cadastrada.</div>' : '';
@@ -798,7 +797,7 @@
               <span class="badge ${item.pago ? 'badge-status' : 'badge-pendente'}">${item.pago ? 'Pago / Concluído' : 'Pendente'}</span>
             </div>
             <div class="item-actions">
-              ${!item.pago ? <button class="btn" style="background:#10b981; color:#fff; padding:6px; font-size:0.75rem;" onclick="baixarOS(${item.id})">Dar Baixa (Receber)</button> : ''}
+              ${!item.pago ? `<button class="btn" style="background:#10b981; color:#fff; padding:6px; font-size:0.75rem;" onclick="baixarOS(${item.id})">Dar Baixa (Receber)</button>` : ''}
               <button class="btn-danger" onclick="deleteItem('os', ${item.id})">Excluir</button>
             </div>
           </div>
@@ -875,17 +874,3 @@
   </script>
 </body>
 </html>
- 
-
- 
-     
-     
-     
-        
-  
- 
-  
-
- 
-
-          
