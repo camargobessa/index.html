@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AUTO CENTER - Estética & Funilaria</title>
+  <title>BROTHERS AUTO CENTER - Estética & Funilaria</title>
   <style>
     * {
       box-sizing: border-box;
@@ -19,7 +19,45 @@
       padding-bottom: 60px;
     }
 
-    /* Cabeçalho igual ao vídeo */
+    /* Tela de Bloqueio (Senha) */
+    #lock-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0f172a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    .lock-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      padding: 24px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+    }
+
+    .lock-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #f59e0b;
+      margin-bottom: 6px;
+    }
+
+    .lock-sub {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-bottom: 16px;
+    }
+
+    /* Cabeçalho */
     header {
       background: #1e293b;
       border: 1px solid #334155;
@@ -62,7 +100,7 @@
       margin-top: 2px;
     }
 
-    /* Menu Vertical de Abas (Estilo do Vídeo) */
+    /* Menu Vertical de Abas */
     .menu-container {
       display: flex;
       flex-direction: column;
@@ -84,7 +122,6 @@
       gap: 12px;
       text-align: left;
       width: 100%;
-      transition: all 0.2s;
     }
 
     .menu-btn.active {
@@ -112,7 +149,6 @@
       color: #f59e0b;
     }
 
-    /* Barra de Status Inferior ao Menu */
     .status-bar {
       display: flex;
       justify-content: space-between;
@@ -138,7 +174,6 @@
       border-radius: 50%;
     }
 
-    /* Conteúdo das Abas */
     .tab-content {
       display: none;
     }
@@ -147,7 +182,6 @@
       display: block;
     }
 
-    /* Cards e Blocos */
     .card {
       background: #1e293b;
       border-radius: 14px;
@@ -190,7 +224,6 @@
       font-weight: 700;
     }
 
-    /* Divisão de Sócios */
     .socios-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -202,9 +235,8 @@
       background: #0f172a;
       padding: 10px;
       border-radius: 8px;
-      border-left: 3px solid #f59e0b;
       border: 1px solid #334155;
-      border-left-width: 3px;
+      border-left: 3px solid #f59e0b;
     }
 
     .socio-name {
@@ -219,7 +251,6 @@
       margin-top: 2px;
     }
 
-    /* Formulários e Botões */
     .form-group {
       margin-bottom: 12px;
     }
@@ -266,7 +297,6 @@
     .btn-success { background: #10b981; color: #fff; }
     .btn-danger { background: #ef4444; color: #fff; padding: 6px 10px; font-size: 0.75rem; width: auto; border-radius: 6px; }
 
-    /* Listas */
     .item-list {
       display: flex;
       flex-direction: column;
@@ -318,7 +348,20 @@
 </head>
 <body>
 
-  <!-- Cabeçalho (Estilo Vídeo) -->
+  <!-- TELA DE SENHA -->
+  <div id="lock-screen">
+    <div class="lock-card">
+      <div class="lock-title">🔒 AUTO CENTER</div>
+      <div class="lock-sub">Digite a senha de acesso da oficina</div>
+      <div class="form-group">
+        <input type="password" id="access-password" placeholder="Senha (ex: 1994)" style="text-align: center; letter-spacing: 2px;">
+      </div>
+      <button class="btn btn-primary" onclick="checkPassword()">Entrar no Sistema</button>
+      <div id="error-msg" style="color: #ef4444; font-size: 0.75rem; margin-top: 8px; display: none;">Senha incorreta!</div>
+    </div>
+  </div>
+
+  <!-- Cabeçalho -->
   <header>
     <div class="brand-icon">🛠️</div>
     <div class="brand-info">
@@ -327,7 +370,7 @@
     </div>
   </header>
 
-  <!-- Menu Vertical Estilo App (Exatamente como no vídeo) -->
+  <!-- Menu Vertical -->
   <div class="menu-container">
     <button class="menu-btn active" onclick="switchTab('dashboard')">
       <span class="menu-icon">📊</span> Dashboard
@@ -343,7 +386,7 @@
       <span class="menu-icon">📦</span> Estoque de Insumos
     </button>
     <button class="menu-btn" onclick="switchTab('revenda')">
-      <span class="menu-icon">🏎️</span> Carros FDS / Revenda
+      <span class="menu-icon">🏎‍🟀</span> Carros FDS / Revenda
     </button>
     <button class="menu-btn" onclick="switchTab('ferramentas')">
       <span class="menu-icon">🛠️</span> Ferramentas
@@ -378,19 +421,19 @@
       <div class="card-title">Divisão dos 4 Sócios (Lucro Líquido Atual)</div>
       <div class="socios-grid">
         <div class="socio-card">
-          <div class="socio-name">Sócio 1</div>
+          <div class="socio-name">Jefferson</div>
           <div class="socio-val" id="dash-socio-1">R$ 0,00</div>
         </div>
         <div class="socio-card">
-          <div class="socio-name">Sócio 2</div>
+          <div class="socio-name">Matheus</div>
           <div class="socio-val" id="dash-socio-2">R$ 0,00</div>
         </div>
         <div class="socio-card">
-          <div class="socio-name">Sócio 3</div>
+          <div class="socio-name">Diego</div>
           <div class="socio-val" id="dash-socio-3">R$ 0,00</div>
         </div>
         <div class="socio-card">
-          <div class="socio-name">Sócio 4</div>
+          <div class="socio-name">Cleudimar</div>
           <div class="socio-val" id="dash-socio-4">R$ 0,00</div>
         </div>
       </div>
@@ -404,7 +447,6 @@
       <button class="btn btn-primary" onclick="toggleForm('form-os')">+ Nova O.S. (Serviço)</button>
     </div>
 
-    <!-- Form Nova O.S. -->
     <div id="form-os" class="card" style="display: none;">
       <div class="card-title">Nova Ordem de Serviço</div>
       <div class="form-group">
@@ -470,7 +512,6 @@
       <button class="btn btn-primary" style="background:#334155; color:#fff;" onclick="toggleForm('form-despesa')">+ Registrar Despesa / Saída</button>
     </div>
 
-    <!-- Form Despesa -->
     <div id="form-despesa" class="card" style="display: none;">
       <div class="card-title">Lançar Despesa / Saída</div>
       <div class="form-group">
@@ -515,7 +556,7 @@
     </div>
   </div>
 
-  <!-- ABA 5: REVENDA (FDS) -->
+  <!-- ABA 5: REVENDA -->
   <div id="tab-revenda" class="tab-content">
     <div class="card">
       <div class="card-title">Carros / Projetos (FDS)</div>
@@ -570,6 +611,27 @@
   </div>
 
   <script>
+    // Sistema de Senha
+    const SENHA_OFICINA = "1994"; // Podes alterar a senha aqui se quiseres
+
+    function checkPassword() {
+      const digitada = document.getElementById('access-password').value;
+      if (digitada === SENHA_OFICINA) {
+        document.getElementById('lock-screen').style.display = 'none';
+        localStorage.setItem('autocenter_auth', 'true');
+      } else {
+        const err = document.getElementById('error-msg');
+        err.style.display = 'block';
+      }
+    }
+
+    // Verificar se já entrou antes neste navegador
+    window.onload = function() {
+      if (localStorage.getItem('autocenter_auth') === 'true') {
+        document.getElementById('lock-screen').style.display = 'none';
+      }
+    };
+
     let db = JSON.parse(localStorage.getItem('autocenter_db')) || {
       os: [],
       caixa: [],
@@ -618,7 +680,7 @@
         item.pago = true;
         db.caixa.push({
           id: Date.now(),
-          desc: `O.S. Recebida: ${item.cliente} (${item.desc})`,
+          desc: O.S. Recebida: ${item.cliente} (${item.desc}),
           categoria: item.tipo,
           valor: item.valor
         });
@@ -634,7 +696,7 @@
 
       db.caixa.push({
         id: Date.now(),
-        desc: `Saída: ${desc}`,
+        desc: Saída: ${desc},
         categoria: 'Saída',
         valor: -valor
       });
@@ -708,25 +770,20 @@
       const lucroTotal = totalEntradas - saidas;
       const porSocio = lucroTotal / 4;
 
-      // Badges e contadores
       document.getElementById('count-os').innerText = db.os.length;
-
-      // Dashboard
-      document.getElementById('dash-faturado').innerText = `R$ ${totalEntradas.toFixed(2)}`;
+      document.getElementById('dash-faturado').innerText = R$ ${totalEntradas.toFixed(2)};
       document.getElementById('dash-qtd-os').innerText = db.os.length;
 
       for (let i = 1; i <= 4; i++) {
-        document.getElementById(`dash-socio-${i}`).innerText = `R$ ${porSocio.toFixed(2)}`;
+        document.getElementById(dash-socio-${i}).innerText = R$ ${porSocio.toFixed(2)};
       }
 
-      // Financeiro
-      document.getElementById('fin-estetica').innerText = `R$ ${entEstetica.toFixed(2)}`;
-      document.getElementById('fin-funilaria').innerText = `R$ ${entFunilaria.toFixed(2)}`;
-      document.getElementById('fin-total-entradas').innerText = `R$ ${totalEntradas.toFixed(2)}`;
-      document.getElementById('fin-saidas').innerText = `R$ ${saidas.toFixed(2)}`;
-      document.getElementById('fin-lucro').innerText = `R$ ${lucroTotal.toFixed(2)}`;
+      document.getElementById('fin-estetica').innerText = R$ ${entEstetica.toFixed(2)};
+      document.getElementById('fin-funilaria').innerText = R$ ${entFunilaria.toFixed(2)};
+      document.getElementById('fin-total-entradas').innerText = R$ ${totalEntradas.toFixed(2)};
+      document.getElementById('fin-saidas').innerText = R$ ${saidas.toFixed(2)};
+      document.getElementById('fin-lucro').innerText = R$ ${lucroTotal.toFixed(2)};
 
-      // Lista O.S.
       const listaOS = document.getElementById('lista-os');
       listaOS.innerHTML = db.os.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Nenhuma O.S. cadastrada.</div>' : '';
       db.os.forEach(item => {
@@ -741,14 +798,13 @@
               <span class="badge ${item.pago ? 'badge-status' : 'badge-pendente'}">${item.pago ? 'Pago / Concluído' : 'Pendente'}</span>
             </div>
             <div class="item-actions">
-              ${!item.pago ? `<button class="btn" style="background:#10b981; color:#fff; padding:6px; font-size:0.75rem;" onclick="baixarOS(${item.id})">Dar Baixa (Receber)</button>` : ''}
+              ${!item.pago ? <button class="btn" style="background:#10b981; color:#fff; padding:6px; font-size:0.75rem;" onclick="baixarOS(${item.id})">Dar Baixa (Receber)</button> : ''}
               <button class="btn-danger" onclick="deleteItem('os', ${item.id})">Excluir</button>
             </div>
           </div>
         `;
       });
 
-      // Lista Caixa
       const listaCaixa = document.getElementById('lista-caixa');
       listaCaixa.innerHTML = db.caixa.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Sem movimentações.</div>' : '';
       db.caixa.forEach(c => {
@@ -762,7 +818,6 @@
         `;
       });
 
-      // Estoque
       const listaEst = document.getElementById('lista-estoque');
       listaEst.innerHTML = db.estoque.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Estoque vazio.</div>' : '';
       db.estoque.forEach(e => {
@@ -781,7 +836,6 @@
         `;
       });
 
-      // Revenda
       const listaRev = document.getElementById('lista-revenda');
       listaRev.innerHTML = db.revenda.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Nenhum projeto cadastrado.</div>' : '';
       db.revenda.forEach(r => {
@@ -800,7 +854,6 @@
         `;
       });
 
-      // Ferramentas
       const listaFerr = document.getElementById('lista-ferramentas');
       listaFerr.innerHTML = db.ferramentas.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Nenhuma ferramenta cadastrada.</div>' : '';
       db.ferramentas.forEach(f => {
@@ -822,3 +875,17 @@
   </script>
 </body>
 </html>
+ 
+
+ 
+     
+     
+     
+        
+  
+ 
+  
+
+ 
+
+          
