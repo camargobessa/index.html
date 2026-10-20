@@ -19,41 +19,116 @@
       padding-bottom: 60px;
     }
 
-    /* Cabeçalho */
+    /* Cabeçalho igual ao vídeo */
     header {
       background: #1e293b;
       border: 1px solid #334155;
-      padding: 14px;
-      border-radius: 12px;
-      margin-bottom: 14px;
+      padding: 16px;
+      border-radius: 14px;
+      margin-bottom: 12px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      background: #f59e0b;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: #0f172a;
+      flex-shrink: 0;
+    }
+
+    .brand-info {
+      flex: 1;
     }
 
     .brand-title {
       font-size: 1.1rem;
       font-weight: 800;
-      color: #f59e0b;
+      color: #f8fafc;
       letter-spacing: 0.5px;
     }
 
     .brand-sub {
       font-size: 0.75rem;
-      color: #94a3b8;
+      color: #f59e0b;
+      font-weight: 600;
       margin-top: 2px;
     }
 
-    .system-status {
+    /* Menu Vertical de Abas (Estilo do Vídeo) */
+    .menu-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .menu-btn {
+      background: #1e293b;
+      color: #cbd5e1;
+      border: 1px solid #334155;
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+      width: 100%;
+      transition: all 0.2s;
+    }
+
+    .menu-btn.active {
+      background: #f59e0b;
+      color: #0f172a;
+      border-color: #f59e0b;
+      font-weight: 700;
+    }
+
+    .menu-icon {
+      font-size: 1.1rem;
+    }
+
+    .badge-count {
+      margin-left: auto;
+      background: #334155;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 8px;
       font-size: 0.75rem;
+    }
+
+    .menu-btn.active .badge-count {
+      background: #0f172a;
+      color: #f59e0b;
+    }
+
+    /* Barra de Status Inferior ao Menu */
+    .status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 4px;
+      margin-bottom: 14px;
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+
+    .online-badge {
       color: #10b981;
       display: flex;
       align-items: center;
-      gap: 6px;
-      background: #0f172a;
-      padding: 6px 10px;
-      border-radius: 20px;
-      border: 1px solid #334155;
+      gap: 5px;
+      font-weight: 600;
     }
 
     .status-dot {
@@ -61,44 +136,6 @@
       height: 7px;
       background: #10b981;
       border-radius: 50%;
-      box-shadow: 0 0 6px #10b981;
-    }
-
-    /* Menu de Abas Estilo App */
-    .nav-container {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .nav-row {
-      display: flex;
-      gap: 6px;
-      overflow-x: auto;
-      padding-bottom: 2px;
-    }
-
-    .tab-btn {
-      background: #1e293b;
-      color: #94a3b8;
-      border: 1px solid #334155;
-      padding: 12px 14px;
-      border-radius: 10px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
-      flex: 1;
-      text-align: center;
-      transition: all 0.2s ease;
-    }
-
-    .tab-btn.active {
-      background: #f59e0b;
-      color: #0f172a;
-      border-color: #f59e0b;
-      font-weight: 700;
     }
 
     /* Conteúdo das Abas */
@@ -113,29 +150,21 @@
     /* Cards e Blocos */
     .card {
       background: #1e293b;
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 16px;
       margin-bottom: 14px;
       border: 1px solid #334155;
     }
 
     .card-title {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: #94a3b8;
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       font-weight: 700;
     }
 
-    .big-number {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: #10b981;
-      margin-top: 4px;
-    }
-
-    /* Grid de Estatísticas */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -145,7 +174,7 @@
 
     .stat-box {
       background: #0f172a;
-      padding: 12px;
+      padding: 14px;
       border-radius: 10px;
       border: 1px solid #334155;
     }
@@ -157,7 +186,7 @@
     }
 
     .stat-val {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 700;
     }
 
@@ -174,9 +203,8 @@
       padding: 10px;
       border-radius: 8px;
       border-left: 3px solid #f59e0b;
-      border-top: 1px solid #334155;
-      border-right: 1px solid #334155;
-      border-bottom: 1px solid #334155;
+      border: 1px solid #334155;
+      border-left-width: 3px;
     }
 
     .socio-name {
@@ -223,7 +251,7 @@
       width: 100%;
       padding: 12px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-weight: 700;
       font-size: 0.9rem;
       cursor: pointer;
@@ -290,28 +318,42 @@
 </head>
 <body>
 
-  <!-- Cabeçalho -->
+  <!-- Cabeçalho (Estilo Vídeo) -->
   <header>
-    <div>
-      <div class="brand-title">BROTHERS</div>
+    <div class="brand-icon">🛠️</div>
+    <div class="brand-info">
+      <div class="brand-title">BROTHERS AUTO CENTER</div>
       <div class="brand-sub">Estética & Funilaria</div>
-    </div>
-    <div class="system-status">
-      <div class="status-dot"></div> Online
     </div>
   </header>
 
-  <!-- Navegação por Abas (Estilo App Profissional) -->
-  <div class="nav-container">
-    <div class="nav-row">
-      <button class="tab-btn active" onclick="switchTab('dashboard')">📊 Dashboard</button>
-      <button class="tab-btn" onclick="switchTab('os')">📋 Ordens de Serviço</button>
-    </div>
-    <div class="nav-row">
-      <button class="tab-btn" onclick="switchTab('financeiro')">💰 Financeiro</button>
-      <button class="tab-btn" onclick="switchTab('estoque')">📦 Estoque</button>
-      <button class="tab-btn" onclick="switchTab('revenda')">🏎️ Revenda</button>
-      <button class="tab-btn" onclick="switchTab('ferramentas')">🛠️ Ferramentas</button>
+  <!-- Menu Vertical Estilo App (Exatamente como no vídeo) -->
+  <div class="menu-container">
+    <button class="menu-btn active" onclick="switchTab('dashboard')">
+      <span class="menu-icon">📊</span> Dashboard
+    </button>
+    <button class="menu-btn" onclick="switchTab('os')">
+      <span class="menu-icon">📋</span> Ordens de Serviço
+      <span class="badge-count" id="count-os">0</span>
+    </button>
+    <button class="menu-btn" onclick="switchTab('financeiro')">
+      <span class="menu-icon">💰</span> Financeiro & Caixa
+    </button>
+    <button class="menu-btn" onclick="switchTab('estoque')">
+      <span class="menu-icon">📦</span> Estoque de Insumos
+    </button>
+    <button class="menu-btn" onclick="switchTab('revenda')">
+      <span class="menu-icon">🏎️</span> Carros FDS / Revenda
+    </button>
+    <button class="menu-btn" onclick="switchTab('ferramentas')">
+      <span class="menu-icon">🛠️</span> Ferramentas
+    </button>
+  </div>
+
+  <div class="status-bar">
+    <span>Sistema v1.0</span>
+    <div class="online-badge">
+      <div class="status-dot"></div> Online
     </div>
   </div>
 
@@ -542,7 +584,7 @@
     }
 
     function switchTab(tabName) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.menu-btn').forEach(btn => btn.classList.remove('active'));
       document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
       
       event.currentTarget.classList.add('active');
@@ -665,6 +707,9 @@
       const totalEntradas = entEstetica + entFunilaria;
       const lucroTotal = totalEntradas - saidas;
       const porSocio = lucroTotal / 4;
+
+      // Badges e contadores
+      document.getElementById('count-os').innerText = db.os.length;
 
       // Dashboard
       document.getElementById('dash-faturado').innerText = `R$ ${totalEntradas.toFixed(2)}`;
