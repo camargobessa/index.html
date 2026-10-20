@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestão Oficina 3 em 1 - Estética, Funilaria e Revenda</title>
+  <title>Brothers Oficina 3 em 1 - Estética, Funilaria e Revenda</title>
   <style>
     * {
       box-sizing: border-box;
@@ -23,7 +23,7 @@
     header {
       text-align: center;
       margin-bottom: 16px;
-      padding: 12px 0;
+      padding: 10px 0;
       border-bottom: 1px solid #1e293b;
     }
 
@@ -42,21 +42,64 @@
       color: #94a3b8;
     }
 
-    /* Resumo dos Sócios */
-    .socios-card {
+    /* Cartão de Resumo Financeiro (Topo) */
+    .finance-summary-card {
       background: #1e293b;
       border: 1px solid #334155;
       border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 16px;
+      padding: 14px;
+      margin-bottom: 12px;
     }
 
-    .socios-title {
+    .summary-title {
       font-size: 0.85rem;
       color: #94a3b8;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .summary-box {
+      background: #0f172a;
+      padding: 8px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .summary-label {
+      font-size: 0.7rem;
+      color: #94a3b8;
+      margin-bottom: 4px;
+    }
+
+    .summary-value {
+      font-size: 0.95rem;
+      font-weight: bold;
+    }
+
+    /* Divisão dos Sócios */
+    .socios-card {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 8px;
+    }
+
+    .socios-title {
+      font-size: 0.75rem;
+      color: #cbd5e1;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
       margin-bottom: 8px;
+      text-align: center;
     }
 
     .socios-grid {
@@ -66,10 +109,10 @@
     }
 
     .socio-box {
-      background: #0f172a;
+      background: #1e293b;
       padding: 8px;
       border-radius: 6px;
-      border-left: 3px solid #3b82f6;
+      border-left: 3px solid #10b981;
     }
 
     .socio-name {
@@ -185,14 +228,6 @@
       color: #fff;
     }
 
-    .btn-danger {
-      background: #ef4444;
-      color: #fff;
-      padding: 6px 10px;
-      font-size: 0.75rem;
-      width: auto;
-    }
-
     /* Listas */
     .item-list {
       display: flex;
@@ -273,9 +308,10 @@
       color: #ef4444;
     }
 
-    /* Contadores e Valores */
-    .val-green { color: #10b981; font-weight: bold; }
-    .val-red { color: #ef4444; font-weight: bold; }
+    /* Contadores e Cores de Valor */
+    .val-green { color: #10b981; }
+    .val-red { color: #ef4444; }
+    .val-yellow { color: #f59e0b; }
   </style>
 </head>
 <body>
@@ -285,25 +321,45 @@
     <div class="subtitle">Estética • Funilaria • Revenda (4 Sócios)</div>
   </header>
 
-  <!-- Divisão de Lucros dos Sócios -->
-  <div class="socios-card">
-    <div class="socios-title">💰 Divisão do Caixa Atual (Por Sócio)</div>
-    <div class="socios-grid">
-      <div class="socio-box">
-        <div class="socio-name">Sócio 1</div>
-        <div class="socio-val" id="socio-1">R$ 0,00</div>
+  <!-- RESUMO FINANCEIRO DO CAIXA -->
+  <div class="finance-summary-card">
+    <div class="summary-title">📊 Fechamento Geral do Caixa</div>
+    
+    <div class="summary-grid">
+      <div class="summary-box">
+        <div class="summary-label">Entradas</div>
+        <div class="summary-value val-green" id="total-entradas">R$ 0,00</div>
       </div>
-      <div class="socio-box">
-        <div class="socio-name">Sócio 2</div>
-        <div class="socio-val" id="socio-2">R$ 0,00</div>
+      <div class="summary-box">
+        <div class="summary-label">Saídas</div>
+        <div class="summary-value val-red" id="total-saidas">R$ 0,00</div>
       </div>
-      <div class="socio-box">
-        <div class="socio-name">Sócio 3</div>
-        <div class="socio-val" id="socio-3">R$ 0,00</div>
+      <div class="summary-box">
+        <div class="summary-label">Lucro Total</div>
+        <div class="summary-value val-yellow" id="lucro-total">R$ 0,00</div>
       </div>
-      <div class="socio-box">
-        <div class="socio-name">Sócio 4</div>
-        <div class="socio-val" id="socio-4">R$ 0,00</div>
+    </div>
+
+    <!-- DIVISÃO POR SÓCIO (ABAIXO DO LUCRO TOTAL) -->
+    <div class="socios-card">
+      <div class="socios-title">🤝 Divisão do Lucro Atual (Por Sócio)</div>
+      <div class="socios-grid">
+        <div class="socio-box">
+          <div class="socio-name">Sócio 1</div>
+          <div class="socio-val" id="socio-1">R$ 0,00</div>
+        </div>
+        <div class="socio-box">
+          <div class="socio-name">Sócio 2</div>
+          <div class="socio-val" id="socio-2">R$ 0,00</div>
+        </div>
+        <div class="socio-box">
+          <div class="socio-name">Sócio 3</div>
+          <div class="socio-val" id="socio-3">R$ 0,00</div>
+        </div>
+        <div class="socio-box">
+          <div class="socio-name">Sócio 4</div>
+          <div class="socio-val" id="socio-4">R$ 0,00</div>
+        </div>
       </div>
     </div>
   </div>
@@ -322,8 +378,7 @@
     
     <div class="card">
       <div class="card-title">
-        <span>Resumo do Caixa</span>
-        <span id="total-caixa-display" class="val-green">R$ 0,00</span>
+        <span>Ações Rápidas</span>
       </div>
       <div style="display: flex; gap: 8px;">
         <button class="btn btn-primary" onclick="toggleForm('form-os')">+ Nova O.S. / Serviço</button>
@@ -373,7 +428,7 @@
     </div>
 
     <div class="card">
-      <div class="card-title">Histórico de Movimentações de Caixa</div>
+      <div class="card-title">Histórico de Movimentações</div>
       <div id="lista-caixa" class="item-list"></div>
     </div>
   </div>
@@ -648,12 +703,17 @@
 
     // Renderização Geral
     function renderAll() {
-      // Calcular Caixa Total
-      const totalCaixa = db.caixa.reduce((acc, curr) => acc + curr.valor, 0);
-      document.getElementById('total-caixa-display').innerText = `R$ ${totalCaixa.toFixed(2)}`;
+      // Calcular Entradas, Saídas e Lucro Total
+      const entradas = db.caixa.filter(c => c.valor > 0).reduce((acc, curr) => acc + curr.valor, 0);
+      const saidas = db.caixa.filter(c => c.valor < 0).reduce((acc, curr) => acc + Math.abs(curr.valor), 0);
+      const lucroTotal = entradas - saidas;
+
+      document.getElementById('total-entradas').innerText = `R$ ${entradas.toFixed(2)}`;
+      document.getElementById('total-saidas').innerText = `R$ ${saidas.toFixed(2)}`;
+      document.getElementById('lucro-total').innerText = `R$ ${lucroTotal.toFixed(2)}`;
       
-      // Divisão Sócios
-      const porSocio = totalCaixa / 4;
+      // Divisão do Lucro por 4 Sócios
+      const porSocio = lucroTotal / 4;
       for (let i = 1; i <= 4; i++) {
         document.getElementById(`socio-${i}`).innerText = `R$ ${porSocio.toFixed(2)}`;
       }
