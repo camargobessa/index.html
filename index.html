@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brothers Oficina 3 em 1 - Estética, Funilaria e Revenda</title>
+  <title>Brothers - Estética & Funilaria</title>
   <style>
     * {
       box-sizing: border-box;
@@ -16,133 +16,59 @@
       background-color: #0f172a;
       color: #f8fafc;
       padding: 12px;
-      padding-bottom: 40px;
+      padding-bottom: 50px;
     }
 
-    /* Cabeçalho */
+    /* Cabeçalho do App */
     header {
-      text-align: center;
-      margin-bottom: 16px;
-      padding: 10px 0;
-      border-bottom: 1px solid #1e293b;
+      background: #1e293b;
+      border: 1px solid #334155;
+      padding: 14px;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    h1 {
-      font-size: 1.3rem;
+    .brand-title {
+      font-size: 1.1rem;
+      font-weight: 800;
       color: #f59e0b;
-      margin-bottom: 4px;
+    }
+
+    .brand-sub {
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+
+    .system-status {
+      font-size: 0.75rem;
+      color: #10b981;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 6px;
+      gap: 4px;
     }
 
-    .subtitle {
-      font-size: 0.8rem;
-      color: #94a3b8;
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
     }
 
-    /* Cartão de Resumo Financeiro (Topo) */
-    .finance-summary-card {
-      background: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 10px;
-      padding: 14px;
-      margin-bottom: 12px;
-    }
-
-    .summary-title {
-      font-size: 0.85rem;
-      color: #94a3b8;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 10px;
-    }
-
-    .summary-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-
-    .summary-box {
-      background: #0f172a;
-      padding: 8px;
-      border-radius: 8px;
-      text-align: center;
-    }
-
-    .summary-label {
-      font-size: 0.7rem;
-      color: #94a3b8;
-      margin-bottom: 4px;
-    }
-
-    .summary-value {
-      font-size: 0.9rem;
-      font-weight: bold;
-    }
-
-    .lucro-box {
-      grid-column: span 2;
-      background: #111827;
-      border: 1px solid #3b82f6;
-      padding: 10px;
-      border-radius: 8px;
-      text-align: center;
-      margin-top: 4px;
-    }
-
-    /* Divisão dos Sócios */
-    .socios-card {
-      background: #0f172a;
-      border: 1px solid #334155;
-      border-radius: 8px;
-      padding: 12px;
-      margin-top: 10px;
-    }
-
-    .socios-title {
-      font-size: 0.75rem;
-      color: #cbd5e1;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 8px;
-      text-align: center;
-    }
-
-    .socios-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-    }
-
-    .socio-box {
-      background: #1e293b;
-      padding: 8px;
-      border-radius: 6px;
-      border-left: 3px solid #10b981;
-    }
-
-    .socio-name {
-      font-size: 0.75rem;
-      color: #cbd5e1;
-    }
-
-    .socio-val {
-      font-size: 0.95rem;
-      font-weight: bold;
-      color: #10b981;
-    }
-
-    /* Navegação por Abas */
-    .tabs {
+    /* Navegação por Abas (Estilo App) */
+    .nav-tabs {
       display: flex;
-      overflow-x: auto;
+      flex-direction: column;
       gap: 6px;
       margin-bottom: 16px;
-      padding-bottom: 4px;
+    }
+
+    .nav-row {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
     }
 
     .tab-btn {
@@ -151,11 +77,12 @@
       border: 1px solid #334155;
       padding: 10px 14px;
       border-radius: 8px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
-      white-space: nowrap;
       cursor: pointer;
-      flex-shrink: 0;
+      white-space: nowrap;
+      flex: 1;
+      text-align: center;
     }
 
     .tab-btn.active {
@@ -173,24 +100,82 @@
       display: block;
     }
 
-    /* Cartões e Formulários */
+    /* Cards e Blocos */
     .card {
       background: #1e293b;
       border-radius: 10px;
       padding: 14px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       border: 1px solid #334155;
     }
 
     .card-title {
-      font-size: 1rem;
-      color: #f1f5f9;
-      margin-bottom: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      font-size: 0.9rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
     }
 
+    .big-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #10b981;
+    }
+
+    /* Grid de Estatísticas */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .stat-box {
+      background: #0f172a;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: #94a3b8;
+    }
+
+    .stat-val {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-top: 4px;
+    }
+
+    /* Divisão de Sócios */
+    .socios-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .socio-card {
+      background: #0f172a;
+      padding: 10px;
+      border-radius: 8px;
+      border-left: 3px solid #10b981;
+    }
+
+    .socio-name {
+      font-size: 0.75rem;
+      color: #cbd5e1;
+    }
+
+    .socio-val {
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: #10b981;
+    }
+
+    /* Formulários e Ações */
     .form-group {
       margin-bottom: 10px;
     }
@@ -212,7 +197,7 @@
       font-size: 0.9rem;
     }
 
-    input:focus, select:focus, textarea:focus {
+    input:focus, select:focus {
       outline: none;
       border-color: #f59e0b;
     }
@@ -221,24 +206,18 @@
       width: 100%;
       padding: 12px;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: bold;
       font-size: 0.9rem;
       cursor: pointer;
       margin-top: 6px;
     }
 
-    .btn-primary {
-      background: #f59e0b;
-      color: #0f172a;
-    }
+    .btn-primary { background: #f59e0b; color: #0f172a; }
+    .btn-success { background: #10b981; color: #fff; }
+    .btn-danger { background: #ef4444; color: #fff; padding: 6px 10px; font-size: 0.75rem; width: auto; }
 
-    .btn-success {
-      background: #10b981;
-      color: #fff;
-    }
-
-    /* Listas */
+    /* Listas Estilizadas */
     .item-list {
       display: flex;
       flex-direction: column;
@@ -250,307 +229,293 @@
       padding: 12px;
       border-radius: 8px;
       border-left: 4px solid #3b82f6;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
     }
 
-    .list-item.concluido {
-      border-left-color: #10b981;
-      opacity: 0.8;
-    }
+    .list-item.pago { border-left-color: #10b981; }
 
     .item-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 4px;
     }
 
-    .item-title {
-      font-weight: bold;
-      font-size: 0.95rem;
-    }
-
-    .item-sub {
-      font-size: 0.8rem;
-      color: #94a3b8;
-    }
-
-    .item-badge {
-      font-size: 0.7rem;
+    .item-title { font-weight: bold; font-size: 0.95rem; }
+    .item-sub { font-size: 0.78rem; color: #94a3b8; }
+    
+    .badge {
+      font-size: 0.68rem;
       padding: 3px 8px;
-      border-radius: 12px;
+      border-radius: 10px;
       background: #334155;
-      color: #f8fafc;
+      font-weight: bold;
     }
-
-    .badge-pago {
-      background: #059669;
-    }
-
-    .badge-pendente {
-      background: #d97706;
-    }
+    .badge-estetica { background: #0284c7; color: #fff; }
+    .badge-funilaria { background: #d97706; color: #fff; }
+    .badge-status { background: #059669; color: #fff; }
 
     .item-actions {
       display: flex;
       gap: 6px;
-      margin-top: 6px;
+      margin-top: 8px;
     }
 
-    .item-actions button {
-      flex: 1;
-      padding: 6px;
-      border: none;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .btn-action-done {
-      background: #10b981;
-      color: #fff;
-    }
-
-    .btn-action-del {
-      background: #334155;
-      color: #ef4444;
-    }
-
-    /* Contadores e Cores de Valor */
     .val-green { color: #10b981; }
     .val-red { color: #ef4444; }
     .val-yellow { color: #f59e0b; }
-    .val-blue { color: #3b82f6; }
+    .val-blue { color: #38bdf8; }
   </style>
 </head>
 <body>
 
+  <!-- Cabeçalho -->
   <header>
-    <h1>🏎️ Gestão Oficina 3 em 1</h1>
-    <div class="subtitle">Estética • Funilaria • Revenda (4 Sócios)</div>
+    <div>
+      <div class="brand-title">🛠️ AUTO CENTER</div>
+      <div class="brand-sub">Estética & Funilaria (4 Sócios)</div>
+    </div>
+    <div class="system-status">
+      <div class="status-dot"></div> Online
+    </div>
   </header>
 
-  <!-- RESUMO FINANCEIRO DO CAIXA -->
-  <div class="finance-summary-card">
-    <div class="summary-title">📊 Fechamento Geral do Caixa</div>
-    
-    <div class="summary-grid">
-      <div class="summary-box">
-        <div class="summary-label">Entradas Estética</div>
-        <div class="summary-value val-green" id="entradas-estetica">R$ 0,00</div>
-      </div>
-      <div class="summary-box">
-        <div class="summary-label">Entradas Funilaria</div>
-        <div class="summary-value val-blue" id="entradas-funilaria">R$ 0,00</div>
-      </div>
-      <div class="summary-box">
-        <div class="summary-label">Total Entradas</div>
-        <div class="summary-value val-green" id="total-entradas">R$ 0,00</div>
-      </div>
-      <div class="summary-box">
-        <div class="summary-label">Total Saídas</div>
-        <div class="summary-value val-red" id="total-saidas">R$ 0,00</div>
-      </div>
-
-      <div class="lucro-box">
-        <div class="summary-label" style="font-size: 0.75rem;">LUCRO TOTAL LÍQUIDO</div>
-        <div class="summary-value val-yellow" style="font-size: 1.2rem;" id="lucro-total">R$ 0,00</div>
-      </div>
+  <!-- Abas de Navegação -->
+  <div class="nav-tabs">
+    <div class="nav-row">
+      <button class="tab-btn active" onclick="switchTab('dashboard')">📊 Dashboard</button>
+      <button class="tab-btn" onclick="switchTab('os')">📋 Ordens de Serviço</button>
     </div>
-
-    <!-- DIVISÃO POR SÓCIO -->
-    <div class="socios-card">
-      <div class="socios-title">🤝 Divisão do Lucro Atual (Por Sócio)</div>
-      <div class="socios-grid">
-        <div class="socio-box">
-          <div class="socio-name">Sócio 1</div>
-          <div class="socio-val" id="socio-1">R$ 0,00</div>
-        </div>
-        <div class="socio-box">
-          <div class="socio-name">Sócio 2</div>
-          <div class="socio-val" id="socio-2">R$ 0,00</div>
-        </div>
-        <div class="socio-box">
-          <div class="socio-name">Sócio 3</div>
-          <div class="socio-val" id="socio-3">R$ 0,00</div>
-        </div>
-        <div class="socio-box">
-          <div class="socio-name">Sócio 4</div>
-          <div class="socio-val" id="socio-4">R$ 0,00</div>
-        </div>
-      </div>
+    <div class="nav-row">
+      <button class="tab-btn" onclick="switchTab('financeiro')">💰 Financeiro</button>
+      <button class="tab-btn" onclick="switchTab('estoque')">📦 Estoque</button>
+      <button class="tab-btn" onclick="switchTab('revenda')">🏎️ Revenda</button>
+      <button class="tab-btn" onclick="switchTab('ferramentas')">🛠️ Ferramentas</button>
     </div>
   </div>
 
-  <!-- Menu de Navegação por Abas (Sem Carros Pessoais) -->
-  <div class="tabs">
-    <button class="tab-btn active" onclick="switchTab('caixa')">💵 Caixa & O.S.</button>
-    <button class="tab-btn" onclick="switchTab('estoque')">📦 Estoque</button>
-    <button class="tab-btn" onclick="switchTab('fds')">🏎️ Carros FDS / Revenda</button>
-    <button class="tab-btn" onclick="switchTab('ferramentas')">🛠️ Ferramentas</button>
-  </div>
-
-  <!-- ABA 1: CAIXA E ORDENS DE SERVIÇO -->
-  <div id="tab-caixa" class="tab-content active">
-    
+  <!-- ABA 1: DASHBOARD -->
+  <div id="tab-dashboard" class="tab-content active">
     <div class="card">
-      <div class="card-title">
-        <span>Ações Rápidas</span>
+      <div class="card-title">Visão Geral da Oficina</div>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-label">Total Faturado (Bruto)</div>
+          <div class="stat-val val-green" id="dash-faturado">R$ 0,00</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">O.S. Ativas / Total</div>
+          <div class="stat-val val-blue" id="dash-qtd-os">0</div>
+        </div>
       </div>
-      <div style="display: flex; gap: 8px;">
-        <button class="btn btn-primary" onclick="toggleForm('form-os')">+ Nova O.S. / Serviço</button>
-        <button class="btn btn-primary" style="background:#334155; color:#fff;" onclick="toggleForm('form-despesa')">+ Lançar Saída</button>
+      <button class="btn btn-primary" onclick="switchTab('os'); toggleForm('form-os');">+ Nova O.S. / Serviço</button>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Divisão dos 4 Sócios (Lucro Atual)</div>
+      <div class="socios-grid">
+        <div class="socio-card">
+          <div class="socio-name">Sócio 1</div>
+          <div class="socio-val" id="dash-socio-1">R$ 0,00</div>
+        </div>
+        <div class="socio-card">
+          <div class="socio-name">Sócio 2</div>
+          <div class="socio-val" id="dash-socio-2">R$ 0,00</div>
+        </div>
+        <div class="socio-card">
+          <div class="socio-name">Sócio 3</div>
+          <div class="socio-val" id="dash-socio-3">R$ 0,00</div>
+        </div>
+        <div class="socio-card">
+          <div class="socio-name">Sócio 4</div>
+          <div class="socio-val" id="dash-socio-4">R$ 0,00</div>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <!-- ABA 2: ORDENS DE SERVIÇO -->
+  <div id="tab-os" class="tab-content">
+    <div class="card">
+      <div class="card-title">Fluxo de Ordens de Serviço</div>
+      <button class="btn btn-primary" onclick="toggleForm('form-os')">+ Nova O.S. (Serviço)</button>
     </div>
 
     <!-- Form Nova O.S. -->
     <div id="form-os" class="card" style="display: none;">
-      <div class="card-title">Nova Ordem de Serviço</div>
+      <div class="card-title">Cadastrar Nova O.S.</div>
       <div class="form-group">
-        <label>Cliente / Veículo</label>
-        <input type="text" id="os-cliente" placeholder="Ex: Civic 94 - João">
+        <label>Cliente e Veículo</label>
+        <input type="text" id="os-cliente" placeholder="Ex: Carlos - Civic 94">
       </div>
       <div class="form-group">
-        <label>Tipo de Serviço</label>
+        <label>Tipo Principal</label>
         <select id="os-tipo">
           <option value="Estética">Estética Automotiva</option>
           <option value="Funilaria">Funilaria / Pintura</option>
-          <option value="Mecânica">Mecânica / Outros</option>
         </select>
       </div>
       <div class="form-group">
-        <label>Valor Cobrado (R$)</label>
+        <label>Descrição dos Serviços</label>
+        <input type="text" id="os-desc" placeholder="Ex: Polimento Técnico + Martelinho">
+      </div>
+      <div class="form-group">
+        <label>Valor (R$)</label>
         <input type="number" id="os-valor" placeholder="0.00">
       </div>
       <button class="btn btn-success" onclick="addOS()">Salvar O.S.</button>
     </div>
 
+    <div class="card">
+      <div class="card-title">Lista de Ordens de Serviço</div>
+      <div id="lista-os" class="item-list"></div>
+    </div>
+  </div>
+
+  <!-- ABA 3: FINANCEIRO -->
+  <div id="tab-financeiro" class="tab-content">
+    <div class="card">
+      <div class="card-title">Controle Financeiro</div>
+      
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-label">Entradas Estética</div>
+          <div class="stat-val val-green" id="fin-estetica">R$ 0,00</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Entradas Funilaria</div>
+          <div class="stat-val val-blue" id="fin-funilaria">R$ 0,00</div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-label">Total Entradas</div>
+          <div class="stat-val val-green" id="fin-total-entradas">R$ 0,00</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Despesas & Insumos</div>
+          <div class="stat-val val-red" id="fin-saidas">R$ 0,00</div>
+        </div>
+      </div>
+
+      <div class="stat-box" style="text-align: center; margin-bottom: 12px; background: #0b1329;">
+        <div class="stat-label">LUCRO LÍQUIDO CONSOLIDADO</div>
+        <div class="stat-val val-yellow" style="font-size: 1.3rem;" id="fin-lucro">R$ 0,00</div>
+      </div>
+
+      <button class="btn btn-primary" style="background:#334155; color:#fff;" onclick="toggleForm('form-despesa')">+ Registrar Despesa / Saída</button>
+    </div>
+
     <!-- Form Despesa -->
     <div id="form-despesa" class="card" style="display: none;">
-      <div class="card-title">Lançar Saída de Caixa</div>
+      <div class="card-title">Lançar Despesa de Insumo/Marmita</div>
       <div class="form-group">
-        <label>Descrição do Gasto</label>
-        <input type="text" id="desp-desc" placeholder="Ex: Insumos Vonixx / Marmita">
+        <label>Descrição</label>
+        <input type="text" id="desp-desc" placeholder="Ex: Vonixx V-Floc / Lixas / Marmita">
       </div>
       <div class="form-group">
         <label>Valor (R$)</label>
         <input type="number" id="desp-valor" placeholder="0.00">
       </div>
-      <button class="btn btn-primary" style="background:#ef4444; color:#fff;" onclick="addDespesa()">Registrar Saída</button>
+      <button class="btn btn-primary" style="background:#ef4444; color:#fff;" onclick="addDespesa()">Salvar Despesa</button>
     </div>
 
     <div class="card">
-      <div class="card-title">Ordens de Serviço Recentes</div>
-      <div id="lista-os" class="item-list"></div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Histórico de Movimentações</div>
+      <div class="card-title">Extrato de Movimentações</div>
       <div id="lista-caixa" class="item-list"></div>
     </div>
   </div>
 
-  <!-- ABA 2: ESTOQUE -->
+  <!-- ABA 4: ESTOQUE -->
   <div id="tab-estoque" class="tab-content">
     <div class="card">
-      <div class="card-title">
-        <span>Insumos & Produtos</span>
-        <button class="btn btn-primary" style="width: auto; padding: 6px 12px;" onclick="toggleForm('form-estoque')">+ Adicionar</button>
-      </div>
+      <div class="card-title">Controle de Insumos</div>
+      <button class="btn btn-primary" onclick="toggleForm('form-estoque')">+ Adicionar Produto</button>
+    </div>
 
-      <div id="form-estoque" style="display: none; margin-bottom: 12px;">
-        <div class="form-group">
-          <label>Nome do Produto / Insumo</label>
-          <input type="text" id="est-nome" placeholder="Ex: Vonixx Sintra / Lixa 1200">
-        </div>
-        <div class="form-group">
-          <label>Quantidade Atual</label>
-          <input type="number" id="est-qtd" placeholder="1">
-        </div>
-        <button class="btn btn-success" onclick="addEstoque()">Salvar no Estoque</button>
+    <div id="form-estoque" class="card" style="display: none;">
+      <div class="form-group">
+        <label>Nome do Insumo</label>
+        <input type="text" id="est-nome" placeholder="Ex: Vonixx Sintra / Massa Maxi Rubber">
       </div>
+      <div class="form-group">
+        <label>Quantidade</label>
+        <input type="number" id="est-qtd" placeholder="1">
+      </div>
+      <button class="btn btn-success" onclick="addEstoque()">Salvar no Estoque</button>
+    </div>
 
+    <div class="card">
+      <div class="card-title">Produtos em Estoque</div>
       <div id="lista-estoque" class="item-list"></div>
     </div>
   </div>
 
-  <!-- ABA 3: CARROS FDS / REVENDA -->
-  <div id="tab-fds" class="tab-content">
+  <!-- ABA 5: REVENDA (FDS) -->
+  <div id="tab-revenda" class="tab-content">
     <div class="card">
-      <div class="card-title">
-        <span>Projetos & Revenda (FDS)</span>
-        <button class="btn btn-primary" style="width: auto; padding: 6px 12px;" onclick="toggleForm('form-fds')">+ Adicionar Projeto</button>
-      </div>
+      <div class="card-title">Carros / Projetos (FDS)</div>
+      <button class="btn btn-primary" onclick="toggleForm('form-revenda')">+ Novo Projeto</button>
+    </div>
 
-      <div id="form-fds" style="display: none; margin-bottom: 12px;">
-        <div class="form-group">
-          <label>Modelo do Carro</label>
-          <input type="text" id="fds-nome" placeholder="Ex: Fiat Palio 1999">
-        </div>
-        <div class="form-group">
-          <label>Valor de Compra (R$)</label>
-          <input type="number" id="fds-compra" placeholder="0.00">
-        </div>
-        <div class="form-group">
-          <label>Gasto com Reforma / Peças (R$)</label>
-          <input type="number" id="fds-gasto" placeholder="0.00">
-        </div>
-        <div class="form-group">
-          <label>Status do Projeto</label>
-          <select id="fds-status">
-            <option value="Em Funilaria/Lixamento">Em Funilaria / Lixamento</option>
-            <option value="Pronto para Venda">Pronto para Venda</option>
-            <option value="Vendido">Vendido</option>
-          </select>
-        </div>
-        <button class="btn btn-success" onclick="addFDS()">Salvar Projeto</button>
+    <div id="form-revenda" class="card" style="display: none;">
+      <div class="form-group">
+        <label>Modelo do Veículo</label>
+        <input type="text" id="rev-nome" placeholder="Ex: Fiat Palio 1999">
       </div>
+      <div class="form-group">
+        <label>Valor de Compra (R$)</label>
+        <input type="number" id="rev-compra" placeholder="0.00">
+      </div>
+      <div class="form-group">
+        <label>Gasto com Peças/Funilaria (R$)</label>
+        <input type="number" id="rev-gasto" placeholder="0.00">
+      </div>
+      <button class="btn btn-success" onclick="addRevenda()">Salvar Projeto</button>
+    </div>
 
-      <div id="lista-fds" class="item-list"></div>
+    <div class="card">
+      <div class="card-title">Projetos em Andamento</div>
+      <div id="lista-revenda" class="item-list"></div>
     </div>
   </div>
 
-  <!-- ABA 4: FERRAMENTAS -->
+  <!-- ABA 6: FERRAMENTAS -->
   <div id="tab-ferramentas" class="tab-content">
     <div class="card">
-      <div class="card-title">
-        <span>Controle de Ferramentas</span>
-        <button class="btn btn-primary" style="width: auto; padding: 6px 12px;" onclick="toggleForm('form-ferramentas')">+ Adicionar</button>
-      </div>
+      <div class="card-title">Controle de Ferramentas</div>
+      <button class="btn btn-primary" onclick="toggleForm('form-ferramentas')">+ Adicionar Ferramenta</button>
+    </div>
 
-      <div id="form-ferramentas" style="display: none; margin-bottom: 12px;">
-        <div class="form-group">
-          <label>Nome da Ferramenta</label>
-          <input type="text" id="ferr-nome" placeholder="Ex: Politriz Roto-Orbital / Compressor">
-        </div>
-        <div class="form-group">
-          <label>Local / Com Quem Está</label>
-          <input type="text" id="ferr-local" placeholder="Ex: Bancada / Na casa do Sócio 2">
-        </div>
-        <button class="btn btn-success" onclick="addFerramenta()">Salvar Ferramenta</button>
+    <div id="form-ferramentas" class="card" style="display: none;">
+      <div class="form-group">
+        <label>Nome da Ferramenta</label>
+        <input type="text" id="ferr-nome" placeholder="Ex: Politriz / Lixadeira">
       </div>
+      <div class="form-group">
+        <label>Local / Com Quem</label>
+        <input type="text" id="ferr-local" placeholder="Ex: Bancada 1">
+      </div>
+      <button class="btn btn-success" onclick="addFerramenta()">Salvar</button>
+    </div>
 
+    <div class="card">
+      <div class="card-title">Ferramentas Cadastradas</div>
       <div id="lista-ferramentas" class="item-list"></div>
     </div>
   </div>
 
   <script>
-    // Armazenamento
-    let db = JSON.parse(localStorage.getItem('oficina_db')) || {
+    let db = JSON.parse(localStorage.getItem('autocenter_db')) || {
       os: [],
       caixa: [],
-      estoque: [
-        { id: 1, nome: "Vonixx Sintra", qtd: 2 },
-        { id: 2, nome: "Vonixx V-Floc", qtd: 3 }
-      ],
-      fds: [],
+      estoque: [{ id: 1, nome: "Vonixx V-Floc", qtd: 3 }],
+      revenda: [],
       ferramentas: []
     };
 
     function saveDB() {
-      localStorage.setItem('oficina_db', JSON.stringify(db));
+      localStorage.setItem('autocenter_db', JSON.stringify(db));
       renderAll();
     }
 
@@ -558,7 +523,7 @@
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
       
-      event.target.classList.add('active');
+      event.currentTarget.classList.add('active');
       document.getElementById('tab-' + tabName).classList.add('active');
     }
 
@@ -567,23 +532,17 @@
       el.style.display = el.style.display === 'none' ? 'block' : 'none';
     }
 
-    // Ações Caixa e O.S.
     function addOS() {
       const cliente = document.getElementById('os-cliente').value;
       const tipo = document.getElementById('os-tipo').value;
+      const desc = document.getElementById('os-desc').value;
       const valor = parseFloat(document.getElementById('os-valor').value) || 0;
 
       if (!cliente || valor <= 0) return alert('Preencha o cliente e o valor!');
 
-      db.os.push({
-        id: Date.now(),
-        cliente,
-        tipo,
-        valor,
-        pago: false
-      });
-
+      db.os.push({ id: Date.now(), cliente, tipo, desc, valor, pago: false });
       document.getElementById('os-cliente').value = '';
+      document.getElementById('os-desc').value = '';
       document.getElementById('os-valor').value = '';
       toggleForm('form-os');
       saveDB();
@@ -595,10 +554,9 @@
         item.pago = true;
         db.caixa.push({
           id: Date.now(),
-          desc: `O.S. Pago: ${item.cliente}`,
-          categoria: item.tipo, // Estética, Funilaria, etc.
-          valor: item.valor,
-          tipo: 'entrada'
+          desc: `O.S. Recebida: ${item.cliente} (${item.desc})`,
+          categoria: item.tipo,
+          valor: item.valor
         });
         saveDB();
       }
@@ -614,8 +572,7 @@
         id: Date.now(),
         desc: `Saída: ${desc}`,
         categoria: 'Saída',
-        valor: -valor,
-        tipo: 'saida'
+        valor: -valor
       });
 
       document.getElementById('desp-desc').value = '';
@@ -624,13 +581,10 @@
       saveDB();
     }
 
-    // Ações Estoque
     function addEstoque() {
       const nome = document.getElementById('est-nome').value;
       const qtd = parseInt(document.getElementById('est-qtd').value) || 1;
-
-      if (!nome) return alert('Digite o nome do produto!');
-
+      if (!nome) return alert('Digite o nome!');
       db.estoque.push({ id: Date.now(), nome, qtd });
       document.getElementById('est-nome').value = '';
       toggleForm('form-estoque');
@@ -646,164 +600,157 @@
       }
     }
 
-    // Ações Carros FDS
-    function addFDS() {
-      const nome = document.getElementById('fds-nome').value;
-      const compra = parseFloat(document.getElementById('fds-compra').value) || 0;
-      const gasto = parseFloat(document.getElementById('fds-gasto').value) || 0;
-      const status = document.getElementById('fds-status').value;
-
-      if (!nome) return alert('Digite o modelo do carro!');
-
-      db.fds.push({ id: Date.now(), nome, compra, gasto, status });
-      document.getElementById('fds-nome').value = '';
-      toggleForm('form-fds');
+    function addRevenda() {
+      const nome = document.getElementById('rev-nome').value;
+      const compra = parseFloat(document.getElementById('rev-compra').value) || 0;
+      const gasto = parseFloat(document.getElementById('rev-gasto').value) || 0;
+      if (!nome) return alert('Digite o veículo!');
+      db.revenda.push({ id: Date.now(), nome, compra, gasto });
+      document.getElementById('rev-nome').value = '';
+      document.getElementById('rev-compra').value = '';
+      document.getElementById('rev-gasto').value = '';
+      toggleForm('form-revenda');
       saveDB();
     }
 
-    // Ações Ferramentas
     function addFerramenta() {
       const nome = document.getElementById('ferr-nome').value;
       const local = document.getElementById('ferr-local').value;
-
-      if (!nome) return alert('Digite o nome da ferramenta!');
-
+      if (!nome) return alert('Digite a ferramenta!');
       db.ferramentas.push({ id: Date.now(), nome, local });
       document.getElementById('ferr-nome').value = '';
+      document.getElementById('ferr-local').value = '';
       toggleForm('form-ferramentas');
       saveDB();
     }
 
     function deleteItem(cat, id) {
-      db[cat] = db[cat].filter(item => item.id !== id);
+      db[cat] = db[cat].filter(i => i.id !== id);
       saveDB();
     }
 
-    // Renderização Geral
     function renderAll() {
-      // Calcular Entradas por Categoria (Estética vs Funilaria)
-      let entEstetica = 0;
-      let entFunilaria = 0;
-      let entOutros = 0;
-      let saidas = 0;
-
+      let entEstetica = 0, entFunilaria = 0, saidas = 0;
       db.caixa.forEach(c => {
         if (c.valor > 0) {
           if (c.categoria === 'Estética') entEstetica += c.valor;
-          else if (c.categoria === 'Funilaria') entFunilaria += c.valor;
-          else entOutros += c.valor;
+          else entFunilaria += c.valor;
         } else {
           saidas += Math.abs(c.valor);
         }
       });
 
-      const totalEntradas = entEstetica + entFunilaria + entOutros;
+      const totalEntradas = entEstetica + entFunilaria;
       const lucroTotal = totalEntradas - saidas;
-
-      document.getElementById('entradas-estetica').innerText = `R$ ${entEstetica.toFixed(2)}`;
-      document.getElementById('entradas-funilaria').innerText = `R$ ${(entFunilaria + entOutros).toFixed(2)}`;
-      document.getElementById('total-entradas').innerText = `R$ ${totalEntradas.toFixed(2)}`;
-      document.getElementById('total-saidas').innerText = `R$ ${saidas.toFixed(2)}`;
-      document.getElementById('lucro-total').innerText = `R$ ${lucroTotal.toFixed(2)}`;
-      
-      // Divisão do Lucro por 4 Sócios
       const porSocio = lucroTotal / 4;
+
+      // Dashboard
+      document.getElementById('dash-faturado').innerText = `R$ ${totalEntradas.toFixed(2)}`;
+      document.getElementById('dash-qtd-os').innerText = db.os.length;
+
       for (let i = 1; i <= 4; i++) {
-        document.getElementById(`socio-${i}`).innerText = `R$ ${porSocio.toFixed(2)}`;
+        document.getElementById(`dash-socio-${i}`).innerText = `R$ ${porSocio.toFixed(2)}`;
       }
 
-      // Render O.S.
+      // Financeiro
+      document.getElementById('fin-estetica').innerText = `R$ ${entEstetica.toFixed(2)}`;
+      document.getElementById('fin-funilaria').innerText = `R$ ${entFunilaria.toFixed(2)}`;
+      document.getElementById('fin-total-entradas').innerText = `R$ ${totalEntradas.toFixed(2)}`;
+      document.getElementById('fin-saidas').innerText = `R$ ${saidas.toFixed(2)}`;
+      document.getElementById('fin-lucro').innerText = `R$ ${lucroTotal.toFixed(2)}`;
+
+      // Lista O.S.
       const listaOS = document.getElementById('lista-os');
-      listaOS.innerHTML = db.os.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Nenhuma O.S. cadastrada.</div>' : '';
+      listaOS.innerHTML = db.os.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Nenhuma O.S.</div>' : '';
       db.os.forEach(item => {
         listaOS.innerHTML += `
-          <div class="list-item ${item.pago ? 'concluido' : ''}">
+          <div class="list-item ${item.pago ? 'pago' : ''}">
             <div class="item-header">
               <span class="item-title">${item.cliente}</span>
-              <span class="item-badge ${item.pago ? 'badge-pago' : 'badge-pendente'}">${item.pago ? 'Pago' : 'Pendente'}</span>
+              <span class="badge ${item.tipo === 'Estética' ? 'badge-estetica' : 'badge-funilaria'}">${item.tipo}</span>
             </div>
-            <div class="item-sub">${item.tipo} • R$ ${item.valor.toFixed(2)}</div>
+            <div class="item-sub">${item.desc} • R$ ${item.valor.toFixed(2)}</div>
+            <div class="item-header" style="margin-top:6px;">
+              <span class="badge badge-status">${item.pago ? 'Pago / Concluído' : 'Pendente'}</span>
+            </div>
             <div class="item-actions">
-              ${!item.pago ? `<button class="btn-action-done" onclick="baixarOS(${item.id})">Dar Baixa (Receber)</button>` : ''}
-              <button class="btn-action-del" onclick="deleteItem('os', ${item.id})">Excluir</button>
+              ${!item.pago ? `<button class="btn" style="background:#10b981; color:#fff; padding:6px; font-size:0.75rem;" onclick="baixarOS(${item.id})">Dar Baixa (Receber)</button>` : ''}
+              <button class="btn-danger" onclick="deleteItem('os', ${item.id})">Excluir</button>
             </div>
           </div>
         `;
       });
 
-      // Render Caixa
+      // Lista Caixa
       const listaCaixa = document.getElementById('lista-caixa');
-      listaCaixa.innerHTML = db.caixa.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Sem lançamentos no caixa.</div>' : '';
-      db.caixa.forEach(item => {
+      listaCaixa.innerHTML = db.caixa.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Sem movimentações.</div>' : '';
+      db.caixa.forEach(c => {
         listaCaixa.innerHTML += `
-          <div class="list-item" style="border-left-color: ${item.valor >= 0 ? '#10b981' : '#ef4444'}">
+          <div class="list-item" style="border-left-color: ${c.valor >= 0 ? '#10b981' : '#ef4444'}">
             <div class="item-header">
-              <span class="item-title">${item.desc}</span>
-              <span class="${item.valor >= 0 ? 'val-green' : 'val-red'}">R$ ${item.valor.toFixed(2)}</span>
+              <span class="item-title">${c.desc}</span>
+              <span class="${c.valor >= 0 ? 'val-green' : 'val-red'}">R$ ${c.valor.toFixed(2)}</span>
             </div>
-            <div class="item-sub">${item.categoria || 'Geral'}</div>
           </div>
         `;
       });
 
-      // Render Estoque
+      // Estoque
       const listaEst = document.getElementById('lista-estoque');
       listaEst.innerHTML = db.estoque.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Estoque vazio.</div>' : '';
-      db.estoque.forEach(item => {
+      db.estoque.forEach(e => {
         listaEst.innerHTML += `
           <div class="list-item">
             <div class="item-header">
-              <span class="item-title">${item.nome}</span>
-              <span class="item-title" style="color:#f59e0b;">Qtd: ${item.qtd}</span>
+              <span class="item-title">${e.nome}</span>
+              <span class="val-yellow">Qtd: ${e.qtd}</span>
             </div>
             <div class="item-actions">
-              <button class="btn-action-done" onclick="alterQtd(${item.id}, 1)">+1 Qtd</button>
-              <button class="btn-action-done" style="background:#d97706;" onclick="alterQtd(${item.id}, -1)">-1 Qtd</button>
-              <button class="btn-action-del" onclick="deleteItem('estoque', ${item.id})">Excluir</button>
+              <button class="btn" style="background:#10b981; color:#fff; padding:6px; font-size:0.75rem;" onclick="alterQtd(${e.id}, 1)">+1</button>
+              <button class="btn" style="background:#d97706; color:#fff; padding:6px; font-size:0.75rem;" onclick="alterQtd(${e.id}, -1)">-1</button>
+              <button class="btn-danger" onclick="deleteItem('estoque', ${e.id})">Excluir</button>
             </div>
           </div>
         `;
       });
 
-      // Render FDS
-      const listaFDS = document.getElementById('lista-fds');
-      listaFDS.innerHTML = db.fds.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Nenhum projeto de revenda cadastrado.</div>' : '';
-      db.fds.forEach(item => {
-        const totalInvestido = item.compra + item.gasto;
-        listaFDS.innerHTML += `
+      // Revenda
+      const listaRev = document.getElementById('lista-revenda');
+      listaRev.innerHTML = db.revenda.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Nenhum projeto.</div>' : '';
+      db.revenda.forEach(r => {
+        const totalInv = r.compra + r.gasto;
+        listaRev.innerHTML += `
           <div class="list-item">
             <div class="item-header">
-              <span class="item-title">${item.nome}</span>
-              <span class="item-badge" style="background:#2563eb;">${item.status}</span>
+              <span class="item-title">${r.nome}</span>
+              <span class="badge">Investimento: R$ ${totalInv.toFixed(2)}</span>
             </div>
-            <div class="item-sub">Compra: R$ ${item.compra.toFixed(2)} | Peças: R$ ${item.gasto.toFixed(2)}</div>
-            <div class="item-sub" style="color:#f59e0b; font-weight:bold;">Investimento Total: R$ ${totalInvestido.toFixed(2)}</div>
+            <div class="item-sub">Compra: R$ ${r.compra.toFixed(2)} | Peças: R$ ${r.gasto.toFixed(2)}</div>
             <div class="item-actions">
-              <button class="btn-action-del" onclick="deleteItem('fds', ${item.id})">Excluir</button>
+              <button class="btn-danger" onclick="deleteItem('revenda', ${r.id})">Excluir</button>
             </div>
           </div>
         `;
       });
 
-      // Render Ferramentas
+      // Ferramentas
       const listaFerr = document.getElementById('lista-ferramentas');
-      listaFerr.innerHTML = db.ferramentas.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Nenhuma ferramenta cadastrada.</div>' : '';
-      db.ferramentas.forEach(item => {
+      listaFerr.innerHTML = db.ferramentas.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Nenhuma ferramenta.</div>' : '';
+      db.ferramentas.forEach(f => {
         listaFerr.innerHTML += `
           <div class="list-item">
             <div class="item-header">
-              <span class="item-title">${item.nome}</span>
-              <span class="item-badge">${item.local}</span>
+              <span class="item-title">${f.nome}</span>
+              <span class="badge">${f.local}</span>
             </div>
             <div class="item-actions">
-              <button class="btn-action-del" onclick="deleteItem('ferramentas', ${item.id})">Excluir</button>
+              <button class="btn-danger" onclick="deleteItem('ferramentas', ${f.id})">Excluir</button>
             </div>
           </div>
         `;
       });
     }
 
-    // Inicialização
     renderAll();
   </script>
 </body>
