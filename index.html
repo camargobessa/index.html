@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brothers - Estética & Funilaria</title>
+  <title>AUTO CENTER - Estética & Funilaria</title>
   <style>
     * {
       box-sizing: border-box;
@@ -16,10 +16,10 @@
       background-color: #0f172a;
       color: #f8fafc;
       padding: 12px;
-      padding-bottom: 50px;
+      padding-bottom: 60px;
     }
 
-    /* Cabeçalho do App */
+    /* Cabeçalho */
     header {
       background: #1e293b;
       border: 1px solid #334155;
@@ -35,11 +35,13 @@
       font-size: 1.1rem;
       font-weight: 800;
       color: #f59e0b;
+      letter-spacing: 0.5px;
     }
 
     .brand-sub {
       font-size: 0.75rem;
       color: #94a3b8;
+      margin-top: 2px;
     }
 
     .system-status {
@@ -47,21 +49,26 @@
       color: #10b981;
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
+      background: #0f172a;
+      padding: 6px 10px;
+      border-radius: 20px;
+      border: 1px solid #334155;
     }
 
     .status-dot {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       background: #10b981;
       border-radius: 50%;
+      box-shadow: 0 0 6px #10b981;
     }
 
-    /* Navegação por Abas (Estilo App) */
-    .nav-tabs {
+    /* Menu de Abas Estilo App */
+    .nav-container {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
       margin-bottom: 16px;
     }
 
@@ -69,26 +76,29 @@
       display: flex;
       gap: 6px;
       overflow-x: auto;
+      padding-bottom: 2px;
     }
 
     .tab-btn {
       background: #1e293b;
-      color: #cbd5e1;
+      color: #94a3b8;
       border: 1px solid #334155;
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-size: 0.82rem;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
       font-weight: 600;
       cursor: pointer;
       white-space: nowrap;
       flex: 1;
       text-align: center;
+      transition: all 0.2s ease;
     }
 
     .tab-btn.active {
       background: #f59e0b;
       color: #0f172a;
       border-color: #f59e0b;
+      font-weight: 700;
     }
 
     /* Conteúdo das Abas */
@@ -103,50 +113,52 @@
     /* Cards e Blocos */
     .card {
       background: #1e293b;
-      border-radius: 10px;
-      padding: 14px;
-      margin-bottom: 12px;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 14px;
       border: 1px solid #334155;
     }
 
     .card-title {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       color: #94a3b8;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
       margin-bottom: 8px;
+      font-weight: 700;
     }
 
     .big-number {
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-size: 1.6rem;
+      font-weight: 800;
       color: #10b981;
+      margin-top: 4px;
     }
 
     /* Grid de Estatísticas */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
+      gap: 10px;
       margin-bottom: 12px;
     }
 
     .stat-box {
       background: #0f172a;
       padding: 12px;
-      border-radius: 8px;
+      border-radius: 10px;
       border: 1px solid #334155;
     }
 
     .stat-label {
       font-size: 0.72rem;
       color: #94a3b8;
+      margin-bottom: 4px;
     }
 
     .stat-val {
       font-size: 1.1rem;
-      font-weight: bold;
-      margin-top: 4px;
+      font-weight: 700;
     }
 
     /* Divisão de Sócios */
@@ -161,23 +173,27 @@
       background: #0f172a;
       padding: 10px;
       border-radius: 8px;
-      border-left: 3px solid #10b981;
+      border-left: 3px solid #f59e0b;
+      border-top: 1px solid #334155;
+      border-right: 1px solid #334155;
+      border-bottom: 1px solid #334155;
     }
 
     .socio-name {
-      font-size: 0.75rem;
-      color: #cbd5e1;
+      font-size: 0.72rem;
+      color: #94a3b8;
     }
 
     .socio-val {
       font-size: 0.95rem;
-      font-weight: bold;
+      font-weight: 700;
       color: #10b981;
+      margin-top: 2px;
     }
 
-    /* Formulários e Ações */
+    /* Formulários e Botões */
     .form-group {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     label {
@@ -185,14 +201,15 @@
       font-size: 0.75rem;
       color: #cbd5e1;
       margin-bottom: 4px;
+      font-weight: 600;
     }
 
     input, select, textarea {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       background: #0f172a;
       border: 1px solid #334155;
-      border-radius: 6px;
+      border-radius: 8px;
       color: #fff;
       font-size: 0.9rem;
     }
@@ -207,17 +224,21 @@
       padding: 12px;
       border: none;
       border-radius: 8px;
-      font-weight: bold;
+      font-weight: 700;
       font-size: 0.9rem;
       cursor: pointer;
       margin-top: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
     }
 
     .btn-primary { background: #f59e0b; color: #0f172a; }
     .btn-success { background: #10b981; color: #fff; }
-    .btn-danger { background: #ef4444; color: #fff; padding: 6px 10px; font-size: 0.75rem; width: auto; }
+    .btn-danger { background: #ef4444; color: #fff; padding: 6px 10px; font-size: 0.75rem; width: auto; border-radius: 6px; }
 
-    /* Listas Estilizadas */
+    /* Listas */
     .item-list {
       display: flex;
       flex-direction: column;
@@ -226,8 +247,9 @@
 
     .list-item {
       background: #0f172a;
-      padding: 12px;
-      border-radius: 8px;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #334155;
       border-left: 4px solid #3b82f6;
     }
 
@@ -240,24 +262,24 @@
       margin-bottom: 4px;
     }
 
-    .item-title { font-weight: bold; font-size: 0.95rem; }
-    .item-sub { font-size: 0.78rem; color: #94a3b8; }
+    .item-title { font-weight: 700; font-size: 0.95rem; color: #f8fafc; }
+    .item-sub { font-size: 0.8rem; color: #94a3b8; margin-top: 2px; }
     
     .badge {
       font-size: 0.68rem;
       padding: 3px 8px;
-      border-radius: 10px;
-      background: #334155;
-      font-weight: bold;
+      border-radius: 6px;
+      font-weight: 700;
     }
     .badge-estetica { background: #0284c7; color: #fff; }
     .badge-funilaria { background: #d97706; color: #fff; }
-    .badge-status { background: #059669; color: #fff; }
+    .badge-status { background: #065f46; color: #34d399; }
+    .badge-pendente { background: #78350f; color: #fbbf24; }
 
     .item-actions {
       display: flex;
-      gap: 6px;
-      margin-top: 8px;
+      gap: 8px;
+      margin-top: 10px;
     }
 
     .val-green { color: #10b981; }
@@ -271,16 +293,16 @@
   <!-- Cabeçalho -->
   <header>
     <div>
-      <div class="brand-title">🛠️ AUTO CENTER</div>
-      <div class="brand-sub">Estética & Funilaria (4 Sócios)</div>
+      <div class="brand-title">AUTO CENTER</div>
+      <div class="brand-sub">Estética & Funilaria</div>
     </div>
     <div class="system-status">
       <div class="status-dot"></div> Online
     </div>
   </header>
 
-  <!-- Abas de Navegação -->
-  <div class="nav-tabs">
+  <!-- Navegação por Abas (Estilo App Profissional) -->
+  <div class="nav-container">
     <div class="nav-row">
       <button class="tab-btn active" onclick="switchTab('dashboard')">📊 Dashboard</button>
       <button class="tab-btn" onclick="switchTab('os')">📋 Ordens de Serviço</button>
@@ -296,14 +318,14 @@
   <!-- ABA 1: DASHBOARD -->
   <div id="tab-dashboard" class="tab-content active">
     <div class="card">
-      <div class="card-title">Visão Geral da Oficina</div>
+      <div class="card-title">Visão Geral Oficina</div>
       <div class="stats-grid">
         <div class="stat-box">
           <div class="stat-label">Total Faturado (Bruto)</div>
           <div class="stat-val val-green" id="dash-faturado">R$ 0,00</div>
         </div>
         <div class="stat-box">
-          <div class="stat-label">O.S. Ativas / Total</div>
+          <div class="stat-label">Ordens de Serviço</div>
           <div class="stat-val val-blue" id="dash-qtd-os">0</div>
         </div>
       </div>
@@ -311,7 +333,7 @@
     </div>
 
     <div class="card">
-      <div class="card-title">Divisão dos 4 Sócios (Lucro Atual)</div>
+      <div class="card-title">Divisão dos 4 Sócios (Lucro Líquido Atual)</div>
       <div class="socios-grid">
         <div class="socio-card">
           <div class="socio-name">Sócio 1</div>
@@ -342,13 +364,13 @@
 
     <!-- Form Nova O.S. -->
     <div id="form-os" class="card" style="display: none;">
-      <div class="card-title">Cadastrar Nova O.S.</div>
+      <div class="card-title">Nova Ordem de Serviço</div>
       <div class="form-group">
         <label>Cliente e Veículo</label>
         <input type="text" id="os-cliente" placeholder="Ex: Carlos - Civic 94">
       </div>
       <div class="form-group">
-        <label>Tipo Principal</label>
+        <label>Categoria Principal</label>
         <select id="os-tipo">
           <option value="Estética">Estética Automotiva</option>
           <option value="Funilaria">Funilaria / Pintura</option>
@@ -356,7 +378,7 @@
       </div>
       <div class="form-group">
         <label>Descrição dos Serviços</label>
-        <input type="text" id="os-desc" placeholder="Ex: Polimento Técnico + Martelinho">
+        <input type="text" id="os-desc" placeholder="Ex: Polimento Técnico + Pintura Parachoque">
       </div>
       <div class="form-group">
         <label>Valor (R$)</label>
@@ -408,7 +430,7 @@
 
     <!-- Form Despesa -->
     <div id="form-despesa" class="card" style="display: none;">
-      <div class="card-title">Lançar Despesa de Insumo/Marmita</div>
+      <div class="card-title">Lançar Despesa / Saída</div>
       <div class="form-group">
         <label>Descrição</label>
         <input type="text" id="desp-desc" placeholder="Ex: Vonixx V-Floc / Lixas / Marmita">
@@ -436,7 +458,7 @@
     <div id="form-estoque" class="card" style="display: none;">
       <div class="form-group">
         <label>Nome do Insumo</label>
-        <input type="text" id="est-nome" placeholder="Ex: Vonixx Sintra / Massa Maxi Rubber">
+        <input type="text" id="est-nome" placeholder="Ex: Vonixx Sintra / Lixas">
       </div>
       <div class="form-group">
         <label>Quantidade</label>
@@ -661,7 +683,7 @@
 
       // Lista O.S.
       const listaOS = document.getElementById('lista-os');
-      listaOS.innerHTML = db.os.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Nenhuma O.S.</div>' : '';
+      listaOS.innerHTML = db.os.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Nenhuma O.S. cadastrada.</div>' : '';
       db.os.forEach(item => {
         listaOS.innerHTML += `
           <div class="list-item ${item.pago ? 'pago' : ''}">
@@ -670,8 +692,8 @@
               <span class="badge ${item.tipo === 'Estética' ? 'badge-estetica' : 'badge-funilaria'}">${item.tipo}</span>
             </div>
             <div class="item-sub">${item.desc} • R$ ${item.valor.toFixed(2)}</div>
-            <div class="item-header" style="margin-top:6px;">
-              <span class="badge badge-status">${item.pago ? 'Pago / Concluído' : 'Pendente'}</span>
+            <div style="margin-top:8px;">
+              <span class="badge ${item.pago ? 'badge-status' : 'badge-pendente'}">${item.pago ? 'Pago / Concluído' : 'Pendente'}</span>
             </div>
             <div class="item-actions">
               ${!item.pago ? `<button class="btn" style="background:#10b981; color:#fff; padding:6px; font-size:0.75rem;" onclick="baixarOS(${item.id})">Dar Baixa (Receber)</button>` : ''}
@@ -703,11 +725,11 @@
           <div class="list-item">
             <div class="item-header">
               <span class="item-title">${e.nome}</span>
-              <span class="val-yellow">Qtd: ${e.qtd}</span>
+              <span class="val-yellow" style="font-weight:700;">Qtd: ${e.qtd}</span>
             </div>
             <div class="item-actions">
-              <button class="btn" style="background:#10b981; color:#fff; padding:6px; font-size:0.75rem;" onclick="alterQtd(${e.id}, 1)">+1</button>
-              <button class="btn" style="background:#d97706; color:#fff; padding:6px; font-size:0.75rem;" onclick="alterQtd(${e.id}, -1)">-1</button>
+              <button class="btn" style="background:#10b981; color:#fff; padding:6px; font-size:0.75rem;" onclick="alterQtd(${e.id}, 1)">+1 Qtd</button>
+              <button class="btn" style="background:#d97706; color:#fff; padding:6px; font-size:0.75rem;" onclick="alterQtd(${e.id}, -1)">-1 Qtd</button>
               <button class="btn-danger" onclick="deleteItem('estoque', ${e.id})">Excluir</button>
             </div>
           </div>
@@ -716,14 +738,14 @@
 
       // Revenda
       const listaRev = document.getElementById('lista-revenda');
-      listaRev.innerHTML = db.revenda.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Nenhum projeto.</div>' : '';
+      listaRev.innerHTML = db.revenda.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Nenhum projeto cadastrado.</div>' : '';
       db.revenda.forEach(r => {
         const totalInv = r.compra + r.gasto;
         listaRev.innerHTML += `
           <div class="list-item">
             <div class="item-header">
               <span class="item-title">${r.nome}</span>
-              <span class="badge">Investimento: R$ ${totalInv.toFixed(2)}</span>
+              <span class="badge" style="background:#2563eb; color:#fff;">Investimento: R$ ${totalInv.toFixed(2)}</span>
             </div>
             <div class="item-sub">Compra: R$ ${r.compra.toFixed(2)} | Peças: R$ ${r.gasto.toFixed(2)}</div>
             <div class="item-actions">
@@ -735,13 +757,13 @@
 
       // Ferramentas
       const listaFerr = document.getElementById('lista-ferramentas');
-      listaFerr.innerHTML = db.ferramentas.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Nenhuma ferramenta.</div>' : '';
+      listaFerr.innerHTML = db.ferramentas.length === 0 ? '<div style="color:#64748b; font-size:0.8rem;">Nenhuma ferramenta cadastrada.</div>' : '';
       db.ferramentas.forEach(f => {
         listaFerr.innerHTML += `
           <div class="list-item">
             <div class="item-header">
               <span class="item-title">${f.nome}</span>
-              <span class="badge">${f.local}</span>
+              <span class="badge" style="background:#334155; color:#fff;">${f.local}</span>
             </div>
             <div class="item-actions">
               <button class="btn-danger" onclick="deleteItem('ferramentas', ${f.id})">Excluir</button>
